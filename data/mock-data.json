@@ -1,0 +1,122 @@
+[
+  {
+    "brand": "Toyota",
+    "id": 1,
+    "category": "passenger",
+    "driver": { "name": "Алексей" }
+  },
+  {
+    "brand": "Volvo",
+    "id": 2,
+    "category": "cargo",
+    "driver": { "name": "Максим" }
+  },
+  {
+    "brand": "Ford",
+    "id": 3,
+    "category": "special",
+    "driver": { "name": "Дмитрий" }
+  },
+  {
+    "brand": "Chevrolet",
+    "id": 4,
+    "category": "passenger",
+    "driver": { "name": "Сергей" }
+  },
+  {
+    "brand": "Mercedes",
+    "id": 5,
+    "category": "cargo",
+    "driver": { "name": "Артем" }
+  },
+  {
+    "brand": "Nissan",
+    "id": 6,
+    "category": "special",
+    "driver": { "name": "Игорь" }
+  },
+  {
+    "brand": "BMW",
+    "id": 7,
+    "category": "passenger",
+    "driver": { "name": "Максим" }
+  },
+  {
+    "brand": "Audi",
+    "id": 8,
+    "category": "cargo",
+    "driver": { "name": "Виктор" }
+  },
+  {
+    "brand": "Hyundai",
+    "id": 9,
+    "category": "special",
+    "driver": { "name": "Павел" }
+  },
+  {
+    "brand": "Kia",
+    "id": 10,
+    "category": "passenger",
+    "driver": { "name": "Сергей" }
+  },
+  {
+    "brand": "Mazda",
+    "id": 11,
+    "category": "cargo",
+    "driver": { "name": "Артем" }
+  },
+  {
+    "brand": "Volkswagen",
+    "id": 12,
+    "category": "special",
+    "driver": { "name": "Дмитрий" }
+  },
+  {
+    "brand": "Subaru",
+    "id": 13,
+    "category": "passenger",
+    "driver": { "name": "Игорь" }
+  },
+  {
+    "brand": "Tesla",
+    "id": 14,
+    "category": "cargo",
+    "driver": { "name": "Виктор" }
+  },
+  {
+    "brand": "Ferrari",
+    "id": 15,
+    "category": "special",
+    "driver": { "name": "Александр" }
+  },
+  {
+    "brand": "Lamborghini",
+    "id": 16,
+    "category": "passenger",
+    "driver": { "name": "Роман" }
+  },
+  {
+    "brand": "Porsche",
+    "id": 17,
+    "category": "cargo",
+    "driver": { "name": "Артем" }
+  },
+  {
+    "brand": "Jeep",
+    "id": 18,
+    "category": "special",
+    "driver": { "name": "Игорь" }
+  },
+  {
+    "brand": "Land Rover",
+    "id": 19,
+    "category": "passenger",
+    "driver": { "name": "Алексей" }
+  },
+  {
+    "brand": "Range Rover",
+    "id": 20,
+    "category": "cargo",
+    "driver": { "name": "Дмитрий" }
+  }
+]

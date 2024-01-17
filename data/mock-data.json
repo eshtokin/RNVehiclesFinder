@@ -3,120 +3,140 @@
     "brand": "Toyota",
     "id": 1,
     "category": "passenger",
-    "driver": { "name": "Алексей" }
+    "driver": { "name": "Алексей", "phone": "+70001234567" },
+    "location": { "latitude": 45.0355, "longitude": 38.9759 }
   },
   {
     "brand": "Volvo",
     "id": 2,
     "category": "cargo",
-    "driver": { "name": "Максим" }
+    "driver": { "name": "Максим", "phone": "+70009876543" },
+    "location": { "latitude": 46.4402, "longitude": 38.4766 }
   },
   {
     "brand": "Ford",
     "id": 3,
     "category": "special",
-    "driver": { "name": "Дмитрий" }
+    "driver": { "name": "Дмитрий", "phone": "+70005432109" },
+    "location": { "latitude": 44.6353, "longitude": 39.7262 }
   },
   {
     "brand": "Chevrolet",
     "id": 4,
     "category": "passenger",
-    "driver": { "name": "Сергей" }
+    "driver": { "name": "Сергей", "phone": "+70001234568" },
+    "location": { "latitude": 45.7418, "longitude": 39.021 }
   },
   {
     "brand": "Mercedes",
     "id": 5,
     "category": "cargo",
-    "driver": { "name": "Артем" }
+    "driver": { "name": "Артем", "phone": "+70009876544" },
+    "location": { "latitude": 44.6359, "longitude": 38.837 }
   },
   {
     "brand": "Nissan",
     "id": 6,
     "category": "special",
-    "driver": { "name": "Игорь" }
+    "driver": { "name": "Игорь", "phone": "+70005432110" },
+    "location": { "latitude": 44.4623, "longitude": 40.7437 }
   },
   {
     "brand": "BMW",
     "id": 7,
     "category": "passenger",
-    "driver": { "name": "Максим" }
+    "driver": { "name": "Максим", "phone": "+70001234569" },
+    "location": { "latitude": 44.8553, "longitude": 37.3708 }
   },
   {
     "brand": "Audi",
     "id": 8,
     "category": "cargo",
-    "driver": { "name": "Виктор" }
+    "driver": { "name": "Виктор", "phone": "+70009876545" },
+    "location": { "latitude": 44.7537, "longitude": 38.4904 }
   },
   {
     "brand": "Hyundai",
     "id": 9,
     "category": "special",
-    "driver": { "name": "Павел" }
+    "driver": { "name": "Павел", "phone": "+70005432111" },
+    "location": { "latitude": 44.73, "longitude": 34.638 }
   },
   {
     "brand": "Kia",
     "id": 10,
     "category": "passenger",
-    "driver": { "name": "Сергей" }
+    "driver": { "name": "Сергей", "phone": "+70001234570" },
+    "location": { "latitude": 45.748, "longitude": 39.6416 }
   },
   {
     "brand": "Mazda",
     "id": 11,
     "category": "cargo",
-    "driver": { "name": "Артем" }
+    "driver": { "name": "Артем", "phone": "+70009876546" },
+    "location": { "latitude": 45.7456, "longitude": 38.4867 }
   },
   {
     "brand": "Volkswagen",
     "id": 12,
     "category": "special",
-    "driver": { "name": "Дмитрий" }
+    "driver": { "name": "Дмитрий", "phone": "+70005432112" },
+    "location": { "latitude": 45.7483, "longitude": 38.4766 }
   },
   {
     "brand": "Subaru",
     "id": 13,
     "category": "passenger",
-    "driver": { "name": "Игорь" }
+    "driver": { "name": "Игорь", "phone": "+70001234571" },
+    "location": { "latitude": 45.5345, "longitude": 39.713 }
   },
   {
     "brand": "Tesla",
     "id": 14,
     "category": "cargo",
-    "driver": { "name": "Виктор" }
+    "driver": { "name": "Виктор", "phone": "+70009876547" },
+    "location": { "latitude": 45.7445, "longitude": 38.4769 }
   },
   {
     "brand": "Ferrari",
     "id": 15,
     "category": "special",
-    "driver": { "name": "Александр" }
+    "driver": { "name": "Александр", "phone": "+70005432113" },
+    "location": { "latitude": 45.5338, "longitude": 38.4743 }
   },
   {
     "brand": "Lamborghini",
     "id": 16,
     "category": "passenger",
-    "driver": { "name": "Роман" }
+    "driver": { "name": "Роман", "phone": "+70001234572" },
+    "location": { "latitude": 45.5332, "longitude": 38.4888 }
   },
   {
     "brand": "Porsche",
     "id": 17,
     "category": "cargo",
-    "driver": { "name": "Артем" }
+    "driver": { "name": "Артем", "phone": "+70009876548" },
+    "location": { "latitude": 45.5338, "longitude": 38.4772 }
   },
   {
     "brand": "Jeep",
     "id": 18,
     "category": "special",
-    "driver": { "name": "Игорь" }
+    "driver": { "name": "Игорь", "phone": "+70005432114" },
+    "location": { "latitude": 45.7465, "longitude": 38.4752 }
   },
   {
     "brand": "Land Rover",
     "id": 19,
     "category": "passenger",
-    "driver": { "name": "Алексей" }
+    "driver": { "name": "Алексей", "phone": "+70001234573" },
+    "location": { "latitude": 45.7549, "longitude": 39.7118 }
   },
   {
     "brand": "Range Rover",
     "id": 20,
     "category": "cargo",
-    "driver": { "name": "Дмитрий" }
+    "driver": { "name": "Дмитрий", "phone": "+70009876549" },
+    "location": { "latitude": 45.7357, "longitude": 39.737 }
   }
 ]

@@ -13,4 +13,10 @@ export type Vehicle = {
   category: Category;
   brand: string;
   driver: Driver;
+  location: Location;
+};
+
+export type Location = {
+  latitude: number;
+  longitude: number;
 };

@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet, Dimensions } from "react-native";
 import { Category, Vehicle } from "../types";
 import { FlatList } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
-// import MapView from "react-native-maps";
+import MapView, { Marker, Region } from "react-native-maps";
 
 async function getVehicles(): Promise<Vehicle[]> {
   return require("./../data/mock-data.json");
@@ -41,35 +41,91 @@ function useVehicleData() {
 
 const VehicleListScreen = () => {
   const { vehicles, selectCategory } = useVehicleData();
-  const [mapView, setMapView] = useState(false);
+  const [mapView, setMapView] = useState(true);
+
   return (
-    <SafeAreaView
-      edges={["bottom"]}
+    <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
         gap: 20,
       }}
     >
+      <View
+        style={{
+          flexDirection: "row",
+          gap: 10,
+          paddingTop: 15,
+          justifyContent: "center",
+        }}
+      >
+        <CategoryButton
+          title={Category.Cargo}
+          onPress={() => selectCategory(Category.Cargo)}
+        />
+        <CategoryButton
+          title={Category.Passenger}
+          onPress={() => selectCategory(Category.Passenger)}
+        />
+        <CategoryButton
+          title={Category.Special}
+          onPress={() => selectCategory(Category.Special)}
+        />
+        <CategoryButton title={"x"} onPress={() => selectCategory(null)} />
+      </View>
       {mapView ? (
-        <MapViewComponent />
+        <MapViewComponent vehicles={vehicles} />
       ) : (
         <ListView vehicles={vehicles} selectCategory={selectCategory} />
       )}
-      <Pressable onPress={() => setMapView((mv) => !mv)}>
+      <Pressable
+        onPress={() => setMapView((mv) => !mv)}
+        style={{
+          width: 200,
+          padding: 5,
+          backgroundColor: "#aaa",
+          borderRadius: 5,
+          alignSelf: "center",
+          alignItems: "center",
+        }}
+      >
         <Text>{mapView ? "checkout to list" : "checkout to map"}</Text>
       </Pressable>
-    </SafeAreaView>
+    </View>
   );
 };
 
-type MapViewProps = {};
-const MapViewComponent: React.FC<MapViewProps> = () => {
+type MapViewProps = { vehicles: Vehicle[] };
+const MapViewComponent: React.FC<MapViewProps> = ({ vehicles }) => {
+  const getPinColor = (category: Category) => {
+    return category === Category.Cargo
+      ? "red"
+      : category === Category.Passenger
+      ? "blue"
+      : "green";
+  };
+  const initialRegion: Region = {
+    latitude: 45.5,
+    longitude: 39,
+    longitudeDelta: 6,
+    latitudeDelta: 6,
+  };
   return (
-    <View style={styles.container}>{/* <MapView style={styles.map} /> */}</View>
+    <View style={styles.container}>
+      <MapView style={styles.map} initialRegion={initialRegion}>
+        {vehicles.map((v) => {
+          return (
+            <Marker
+              key={v.id}
+              coordinate={v.location}
+              pinColor={getPinColor(v.category)}
+            />
+          );
+        })}
+      </MapView>
+    </View>
   );
 };
+const d = Dimensions.get("screen");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -87,21 +143,6 @@ type ListViewProps = {
 const ListView: React.FC<ListViewProps> = ({ vehicles, selectCategory }) => {
   return (
     <>
-      <View style={{ flexDirection: "row", gap: 10, paddingTop: 15 }}>
-        <CategoryButton
-          title={Category.Cargo}
-          onPress={() => selectCategory(Category.Cargo)}
-        />
-        <CategoryButton
-          title={Category.Passenger}
-          onPress={() => selectCategory(Category.Passenger)}
-        />
-        <CategoryButton
-          title={Category.Special}
-          onPress={() => selectCategory(Category.Special)}
-        />
-        <CategoryButton title={"x"} onPress={() => selectCategory(null)} />
-      </View>
       <FlatList
         data={vehicles}
         keyExtractor={(item) => item.id.toString()}

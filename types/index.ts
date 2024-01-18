@@ -1,7 +1,13 @@
 export enum Category {
-  Passenger = "passenger",
-  Cargo = "cargo",
-  Special = "special",
+  passenger = "passenger",
+  cargo = "cargo",
+  special = "special",
+}
+
+export enum CategoryColor {
+  passenger = "red",
+  cargo = "green",
+  special = "blue",
 }
 
 export type Driver = {

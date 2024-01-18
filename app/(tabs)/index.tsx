@@ -4,6 +4,7 @@ import { Tabs } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 import { CategoryFilter, VehiclesListView, VehiclesMapView } from "components";
 import { useVehiclesData } from "hooks";
+import COLORS from "utils/colors";
 
 const VehicleListScreen = () => {
   const { vehicles, category, selectCategory } = useVehiclesData();
@@ -12,9 +13,9 @@ const VehicleListScreen = () => {
   const RightHeaderIcon = () => (
     <Pressable onPress={() => setMapView((mw) => !mw)}>
       {mapView ? (
-        <FontAwesome name="list" size={24} color="black" />
+        <FontAwesome name="list" size={24} color={COLORS.secondary} />
       ) : (
-        <FontAwesome name="map-marker" size={24} color="black" />
+        <FontAwesome name="map-marker" size={24} color={COLORS.secondary} />
       )}
     </Pressable>
   );
@@ -40,12 +41,11 @@ const VehicleListScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: COLORS.main,
   },
   viewButton: {
     width: 200,
     padding: 5,
-    backgroundColor: "#aaa",
     borderRadius: 5,
     alignSelf: "center",
     alignItems: "center",

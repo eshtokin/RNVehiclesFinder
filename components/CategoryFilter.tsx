@@ -1,6 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import CategoryButton from "./CategoryButton";
 import { Category } from "../types";
+import COLORS from "utils/colors";
 
 type CategoryFilterProps = {
   category: Category;
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: COLORS.main,
   },
 });
 

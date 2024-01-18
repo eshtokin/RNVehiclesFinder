@@ -2,6 +2,7 @@ import { router } from "expo-router";
 import { FC } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { Vehicle } from "../types";
+import COLORS from "utils/colors";
 
 type VehiclesListItemProps = Vehicle;
 const VehiclesListItem: FC<VehiclesListItemProps> = (item: Vehicle) => {
@@ -36,13 +37,13 @@ const VehiclesListItem: FC<VehiclesListItemProps> = (item: Vehicle) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: COLORS.main,
     padding: 20,
     gap: 10,
     borderWidth: 1,
-    borderColor: "rgba(0,0,0,0.3)",
+    borderColor: COLORS.secondaryTransparent,
     borderRadius: 10,
-    shadowColor: "black",
+    shadowColor: COLORS.secondary,
     shadowOffset: {
       height: 2,
       width: -2,

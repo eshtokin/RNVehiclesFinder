@@ -5,6 +5,7 @@ export enum Category {
 }
 
 export enum CategoryColor {
+  all = "black",
   passenger = "red",
   cargo = "green",
   special = "blue",

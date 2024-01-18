@@ -1,8 +1,9 @@
 import { FC } from "react";
 import { Text, Pressable, StyleSheet } from "react-native";
 import { CategoryColor } from "../types";
+import COLORS from "utils/colors";
 
-const inactiveColor = "rgb(242, 242, 242)";
+const inactiveColor = COLORS.main;
 
 type CategoryButtonProps = {
   title: string;
@@ -21,7 +22,7 @@ const CategoryButton: FC<CategoryButtonProps> = ({
         styles.container,
         pressed && styles.pressedContainer,
         active && {
-          borderBottomColor: CategoryColor[title],
+          borderColor: CategoryColor[title],
         },
       ]}
     >
@@ -35,15 +36,15 @@ const CategoryButton: FC<CategoryButtonProps> = ({
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    borderBottomWidth: 2,
+    borderWidth: 1,
     borderRadius: 10,
-    borderBottomColor: inactiveColor,
+    borderColor: COLORS.secondaryTransparent,
     backgroundColor: inactiveColor,
   },
   pressedContainer: {
-    backgroundColor: "rgb(220, 220, 220)",
+    backgroundColor: COLORS.secondaryTransparent,
   },
-  title: { fontSize: 20 },
+  title: { fontSize: 20, color: COLORS.secondary },
 });
 
 export default CategoryButton;

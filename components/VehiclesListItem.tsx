@@ -1,14 +1,18 @@
 import { router } from "expo-router";
 import { FC } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View, ViewStyle } from "react-native";
 import { Vehicle } from "../types";
 import COLORS from "utils/colors";
+import SHARED_STYES from "utils/styles";
 
 type VehiclesListItemProps = Vehicle;
 const VehiclesListItem: FC<VehiclesListItemProps> = (item: Vehicle) => {
   return (
     <Pressable
-      style={styles.container}
+      style={({ pressed }) => [
+        styles.container,
+        pressed ? styles.pressedContainer : SHARED_STYES.shadowShape,
+      ]}
       onPress={() =>
         router.push({
           pathname: "Vehicle",
@@ -43,14 +47,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.secondaryTransparent,
     borderRadius: 10,
-    shadowColor: COLORS.secondary,
-    shadowOffset: {
-      height: 2,
-      width: -2,
-    },
-    shadowRadius: 5,
-    shadowOpacity: 0.3,
   },
+  pressedContainer: { backgroundColor: COLORS.pressedColor },
   title: {
     fontSize: 24,
   },

@@ -1,14 +1,6 @@
 import { Tabs } from "expo-router";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
-import COLORS from "utils/colors";
-
-const DEFAULT_SCREEN_OPTIONS = {
-  headerShown: true,
-  tabBarActiveTintColor: COLORS.secondary,
-  tabBarInactiveTintColor: COLORS.secondaryTransparent,
-  tabBarLabelStyle: { fontSize: 15 },
-  headerRightContainerStyle: { right: 20 },
-};
+import { DEFAULT_SCREEN_OPTIONS } from "utils";
 
 export default function () {
   return (

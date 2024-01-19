@@ -1,12 +1,15 @@
 import { StyleSheet } from "react-native";
 
 const SHARED_STYLES = StyleSheet.create({
+  headerTitle: { fontSize: 22 },
+  headerRightContainer: { right: 20 },
+  tabbarLabel: { fontSize: 15 },
   shadowShape: {
     shadowOffset: {
-      height: 2,
+      height: 3,
       width: -2,
     },
-    shadowRadius: 5,
+    shadowRadius: 3,
     shadowOpacity: 0.3,
   },
 });

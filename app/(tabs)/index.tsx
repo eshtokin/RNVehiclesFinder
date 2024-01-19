@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Text, Pressable, StyleSheet, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View } from "react-native";
 import { Tabs } from "expo-router";
-import { FontAwesome } from "@expo/vector-icons";
-import { CategoryFilter, VehiclesListView, VehiclesMapView } from "components";
+import {
+  CategoryFilter,
+  ChangeViewButton,
+  VehiclesListView,
+  VehiclesMapView,
+} from "components";
 import { useVehiclesData } from "hooks";
 import COLORS from "utils/colors";
 
 const VehicleListScreen = () => {
   const { vehicles, category, selectCategory } = useVehiclesData();
-  const [mapView, setMapView] = useState(false);
+  const [isMapView, setMapView] = useState(false);
 
-  const RightHeaderIcon = () => (
-    <Pressable onPress={() => setMapView((mw) => !mw)}>
-      {mapView ? (
-        <FontAwesome name="list" size={24} color={COLORS.secondary} />
-      ) : (
-        <FontAwesome name="map-marker" size={24} color={COLORS.secondary} />
-      )}
-    </Pressable>
-  );
+  const changeView = () => setMapView((mw) => !mw);
 
   return (
     <>
@@ -26,12 +22,14 @@ const VehicleListScreen = () => {
       <Tabs.Screen
         options={{
           title: "Vehicles",
-          headerRight: RightHeaderIcon,
+          headerRight: () => (
+            <ChangeViewButton isMapView={isMapView} onPress={changeView} />
+          ),
         }}
       />
       <View style={styles.container}>
         <CategoryFilter category={category} selectCategory={selectCategory} />
-        {mapView ? (
+        {isMapView ? (
           <VehiclesMapView vehicles={vehicles} />
         ) : (
           <VehiclesListView vehicles={vehicles} />

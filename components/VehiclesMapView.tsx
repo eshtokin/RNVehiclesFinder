@@ -4,8 +4,11 @@ import { useEffect, useRef } from "react";
 import { Vehicle, Location, CategoryColor } from "types";
 
 const ANIMATION_DURATION = 1000;
-const TIME_BEFORE_ANIMATE = 700;
 const DELTA_FOR_SNGLE_CAR = { latitudeDelta: 0.04, longitudeDelta: 0.04 };
+const DELTA_FOR_SEVERAL_CARS = {
+  latitudeDelta: 6,
+  longitudeDelta: 6,
+};
 const INITIAL_REGION = {
   latitude: 45.5,
   longitude: 39,
@@ -40,19 +43,11 @@ const VehiclesMapView: React.FC<VehiclesMapViewProps> = ({ vehicles }) => {
   const ref = useRef<MapView>();
 
   useEffect(() => {
-    const averLocation = calculateAverageLocation(vehicles);
     const region = {
-      ...averLocation,
-      ...(vehicles.length === 1
-        ? DELTA_FOR_SNGLE_CAR
-        : {
-            latitudeDelta: 6,
-            longitudeDelta: 6,
-          }),
+      ...calculateAverageLocation(vehicles),
+      ...(vehicles.length === 1 ? DELTA_FOR_SNGLE_CAR : DELTA_FOR_SEVERAL_CARS),
     };
-    setTimeout(() => {
-      ref.current.animateToRegion(region, ANIMATION_DURATION);
-    }, TIME_BEFORE_ANIMATE);
+    ref.current?.animateToRegion(region, ANIMATION_DURATION);
   }, [vehicles]);
 
   return (

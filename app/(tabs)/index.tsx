@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Text, Pressable, StyleSheet, View } from "react-native";
 import { Tabs } from "expo-router";
 import { FontAwesome } from "@expo/vector-icons";
 import { CategoryFilter, VehiclesListView, VehiclesMapView } from "components";

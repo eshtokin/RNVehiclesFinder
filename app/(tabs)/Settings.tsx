@@ -3,11 +3,12 @@ import { View, Text, Button, StyleSheet } from "react-native";
 
 type SettingsProps = {};
 const Settings: React.FC<SettingsProps> = () => {
-  const [isEnglishLng, setIsEnglishLng] = useState(true);
+  const [currentLanguage, setCurrentLanguage] = useState("ru");
+
   return (
     <View style={styles.container}>
-      <Text>Language: {isEnglishLng ? "true" : "false"}</Text>
-      <Button title="change" onPress={() => setIsEnglishLng((lng) => !lng)} />
+      <Text>{currentLanguage}</Text>
+      <Button title="change" onPress={() => {}} />
     </View>
   );
 };

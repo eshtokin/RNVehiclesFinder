@@ -31,8 +31,11 @@ const VehicleListScreen = () => {
       />
       <View style={styles.container}>
         <CategoryFilter category={category} selectCategory={selectCategory} />
-        {/* choose view without duplicated props */}
-        {(mapView ? VehiclesMapView : VehiclesListView)({ vehicles })}
+        {mapView ? (
+          <VehiclesMapView vehicles={vehicles} />
+        ) : (
+          <VehiclesListView vehicles={vehicles} />
+        )}
       </View>
     </>
   );

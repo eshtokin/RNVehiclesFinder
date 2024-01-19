@@ -1,18 +1,62 @@
 import { StyleSheet } from "react-native";
-import MapView, { Marker, Region } from "react-native-maps";
-import { CategoryColor, Vehicle } from "../types";
+import MapView, { Marker } from "react-native-maps";
+import { useEffect, useRef } from "react";
+import { Vehicle, Location, CategoryColor } from "types";
+
+const ANIMATION_DURATION = 1000;
+const TIME_BEFORE_ANIMATE = 700;
+const DELTA_FOR_SNGLE_CAR = { latitudeDelta: 0.04, longitudeDelta: 0.04 };
+const INITIAL_REGION = {
+  latitude: 45.5,
+  longitude: 39,
+  longitudeDelta: 6,
+  latitudeDelta: 6,
+};
+
+function calculateAverageLocation(vehicles: Vehicle[]): Location {
+  const initialValue = {
+    latitude: 0,
+    longitude: 0,
+    longitudeDelta: 0,
+    latitudeDelta: 0,
+  };
+  return vehicles.reduce((accumulator, { location }, currentIndex, array) => {
+    accumulator.longitude += location.longitude;
+    accumulator.latitude += location.latitude;
+
+    const isLastElement = currentIndex === array.length - 1;
+    if (isLastElement) {
+      for (const key in accumulator) {
+        key as keyof typeof accumulator;
+        accumulator[key] = accumulator[key] / array.length;
+      }
+    }
+    return accumulator;
+  }, initialValue);
+}
 
 type VehiclesMapViewProps = { vehicles: Vehicle[] };
 const VehiclesMapView: React.FC<VehiclesMapViewProps> = ({ vehicles }) => {
-  const initialRegion: Region = {
-    latitude: 45.5,
-    longitude: 39,
-    longitudeDelta: 6,
-    latitudeDelta: 6,
-  };
+  const ref = useRef<MapView>();
+
+  useEffect(() => {
+    const averLocation = calculateAverageLocation(vehicles);
+    const region = {
+      ...averLocation,
+      ...(vehicles.length === 1
+        ? DELTA_FOR_SNGLE_CAR
+        : {
+            latitudeDelta: 6,
+            longitudeDelta: 6,
+          }),
+    };
+    setTimeout(() => {
+      ref.current.animateToRegion(region, ANIMATION_DURATION);
+    }, TIME_BEFORE_ANIMATE);
+  }, [vehicles]);
 
   return (
-    <MapView style={styles.map} initialRegion={initialRegion}>
+    <MapView ref={ref} style={styles.map} initialRegion={INITIAL_REGION}>
       {vehicles.map((v) => (
         <Marker
           key={v.id}

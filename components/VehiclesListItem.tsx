@@ -1,36 +1,26 @@
 import { router } from "expo-router";
 import { FC } from "react";
-import { Pressable, StyleSheet, Text, View, ViewStyle } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { Vehicle } from "../types";
-import COLORS from "utils/colors";
-import SHARED_STYES from "utils/styles";
+import { COLORS, SHARED_STYLES } from "utils";
 
 type VehiclesListItemProps = Vehicle;
 const VehiclesListItem: FC<VehiclesListItemProps> = (item: Vehicle) => {
+  const navigateToVehicleDetails = () =>
+    router.push({
+      pathname: "Vehicle",
+      params: { id: item.id },
+    });
+
   return (
     <Pressable
       style={({ pressed }) => [
         styles.container,
-        pressed ? styles.pressedContainer : SHARED_STYES.shadowShape,
+        pressed ? styles.pressedContainer : SHARED_STYLES.shadowShape,
       ]}
-      onPress={() =>
-        router.push({
-          pathname: "Vehicle",
-          params: {
-            brand: item.brand,
-            category: item.category,
-            driverName: item.driver.name,
-          },
-        })
-      }
+      onPress={navigateToVehicleDetails}
     >
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "flex-end",
-          justifyContent: "space-between",
-        }}
-      >
+      <View style={styles.topRowInfo}>
         <Text style={styles.title}>{`${item.brand} #${item.id}`}</Text>
         <Text style={styles.category}>{item.category}</Text>
       </View>
@@ -49,6 +39,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   pressedContainer: { backgroundColor: COLORS.pressedColor },
+  topRowInfo: {
+    flexDirection: "row",
+    alignItems: "flex-end",
+    justifyContent: "space-between",
+  },
   title: {
     fontSize: 24,
   },

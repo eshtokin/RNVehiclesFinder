@@ -10,6 +10,8 @@ const DEFAULT_SCREEN_OPTIONS = {
   tabBarLabelStyle: SHARED_STYLES.tabbarLabel,
   tabBarActiveTintColor: COLORS.secondary,
   tabBarInactiveTintColor: COLORS.secondaryTransparent,
+  //label
+  tabBarShowLabel: false,
 };
 
 export default DEFAULT_SCREEN_OPTIONS;

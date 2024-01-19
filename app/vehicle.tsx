@@ -1,5 +1,5 @@
-import { router, useLocalSearchParams } from "expo-router";
-import { View, Text, Button } from "react-native";
+import { useLocalSearchParams } from "expo-router";
+import { View, Text } from "react-native";
 import { Category } from "../types";
 
 type VehicleProps = {};

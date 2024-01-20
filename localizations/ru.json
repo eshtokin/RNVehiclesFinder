@@ -6,6 +6,9 @@
     "passenger": "Пассажирский",
     "special": "Специальный"
   },
+  "common": {
+    "loading": "Загрузка"
+  },
   "vehicles": {
     "screenTitle": "Транспортные средства"
   },

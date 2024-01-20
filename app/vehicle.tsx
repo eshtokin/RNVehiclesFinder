@@ -1,18 +1,33 @@
-import { VehiclesMapView } from "components";
+import { Button, VehiclesMapView } from "components";
 import { useLocalSearchParams } from "expo-router";
 import { useVehicleDetails } from "hooks";
-import { View, Text, StyleSheet, Button } from "react-native";
-
+import { View, Text, StyleSheet, Linking } from "react-native";
+import { useTranslation } from "react-i18next";
+import React from "react";
+import { FontAwesome, Foundation } from "@expo/vector-icons";
 // 5. Кнопка “Позвонить”. Открывает приложение с набором номера и уже подставленным номером водителя;
 // 6. Кнопка “Написать”. Открывает приложение whatsapp с чатом водителя и предустановленным сообщением: “Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе”.
 
 type VehicleProps = {};
 const Vehicle: React.FC<VehicleProps> = () => {
+  const { t } = useTranslation();
   const { id } = useLocalSearchParams();
   const vehicle = useVehicleDetails(Number(id));
 
+  const openWhatsApp = () => {
+    const message =
+      "Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе";
+    Linking.openURL(
+      `whatsapp://send?phone=${vehicle.driver.phone}&text=${message}`
+    );
+  };
+
+  const openDialer = () => {
+    Linking.openURL(`tel:${vehicle.driver.phone}`);
+  };
+
   if (vehicle === null) {
-    return <Text>Loading...</Text>;
+    return <Text style={styles.title}>{t("common.loading")}...</Text>;
   }
 
   return (
@@ -22,10 +37,20 @@ const Vehicle: React.FC<VehicleProps> = () => {
           <Text style={styles.title}>{vehicle.driver.name}</Text>
           <Text style={styles.phone}>{vehicle.driver.phone}</Text>
         </View>
-        <Text style={styles.category}>{vehicle.category}</Text>
+        <Text style={styles.category}>
+          {t(`carCategories.${vehicle.category}`)}
+        </Text>
       </View>
-      <Button title="call" onPress={() => {}} />
-      <Button title="message" onPress={() => {}} />
+      <View style={styles.messengerButtons}>
+        <Button
+          children={<Foundation name="telephone" size={24} color="black" />}
+          onPress={openDialer}
+        />
+        <Button
+          children={<FontAwesome name="whatsapp" size={24} color="black" />}
+          onPress={openWhatsApp}
+        />
+      </View>
       <View style={styles.mapWrapper}>
         <VehiclesMapView vehicles={[vehicle]} />
       </View>
@@ -63,6 +88,12 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     overflow: "hidden",
     zIndex: 100,
+  },
+  messengerButtons: {
+    width: "100%",
+    paddingVertical: 15,
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
 });
 

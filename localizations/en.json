@@ -6,6 +6,9 @@
     "passenger": "Passenger",
     "special": "Special"
   },
+  "common": {
+    "loading": "Loading"
+  },
   "vehicles": {
     "screenTitle": "Vehicles"
   },

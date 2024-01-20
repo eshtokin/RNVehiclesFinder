@@ -16,7 +16,11 @@ const Button: FC<ButtonProps> = ({ onPress, ...rest }) => {
       ]}
       onPress={onPress}
     >
-      {rest.title ? <Text>{rest?.title}</Text> : rest.children}
+      {rest.title ? (
+        <Text style={styles.title}>{rest?.title}</Text>
+      ) : (
+        rest.children
+      )}
     </Pressable>
   );
 };
@@ -26,11 +30,14 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.main,
     padding: 20,
     borderWidth: 1,
-    borderColor: COLORS.secondaryTransparent,
     borderRadius: 10,
+    borderColor: COLORS.secondaryTransparent,
   },
   pressedContainer: {
     backgroundColor: COLORS.pressedColor,
+  },
+  title: {
+    fontSize: 16,
   },
 });
 

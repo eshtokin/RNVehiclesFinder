@@ -1,4 +1,5 @@
 export enum Category {
+  all = "all",
   passenger = "passenger",
   cargo = "cargo",
   special = "special",
@@ -13,6 +14,7 @@ export enum CategoryColor {
 
 export type Driver = {
   name: string;
+  phone: string;
 };
 
 export type Vehicle = {

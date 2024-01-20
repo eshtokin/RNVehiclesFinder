@@ -7,13 +7,15 @@ const inactiveColor = COLORS.main;
 
 type CategoryButtonProps = {
   title: string;
-  onPress: () => void;
+  color?: string;
   active?: boolean;
+  onPress: () => void;
 };
 const CategoryButton: FC<CategoryButtonProps> = ({
-  onPress,
   title,
+  color = "black",
   active = false,
+  onPress,
 }) => {
   return (
     <Pressable
@@ -21,20 +23,19 @@ const CategoryButton: FC<CategoryButtonProps> = ({
       style={({ pressed }) => [
         styles.container,
         pressed ? styles.pressedContainer : SHARED_STYLES.shadowShape,
-        active && {
-          borderColor: CategoryColor[title],
-        },
+        active && { borderColor: color },
       ]}
     >
-      <Text style={[styles.title, active && { color: CategoryColor[title] }]}>
-        {title}
-      </Text>
+      <Text style={[styles.title, active && { color }]}>{title}</Text>
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    height: 48,
+    justifyContent: "center",
+    alignContent: "center",
     padding: 10,
     borderWidth: 1,
     borderRadius: 10,

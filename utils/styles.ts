@@ -5,12 +5,14 @@ const SHARED_STYLES = StyleSheet.create({
   headerRightContainer: { right: 20 },
   tabbarLabel: { fontSize: 15 },
   shadowShape: {
+    shadowColor: "black",
     shadowOffset: {
       height: 3,
       width: -2,
     },
     shadowRadius: 3,
     shadowOpacity: 0.3,
+    elevation: 8,
   },
 });
 

@@ -1,3 +1,16 @@
 {
-  "Welcome to React": "Bienvenue à React et react-i18next"
+  "language": "Русский",
+  "carCategories": {
+    "all": "Все",
+    "cargo": "Грузовые",
+    "passenger": "Пассажирские",
+    "special": "Специальные"
+  },
+  "settings": {
+    "screenTitle": "Настройки",
+    "labels": {
+      "currentLanguage": "Текущий язык",
+      "change": "Изменить"
+    }
+  }
 }

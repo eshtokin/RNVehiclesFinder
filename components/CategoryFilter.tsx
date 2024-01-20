@@ -19,7 +19,6 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
       style={styles.container}
       contentContainerStyle={styles.content}
       showsHorizontalScrollIndicator={false}
-      showsVerticalScrollIndicator={false}
     >
       {CATEGORIES_LIST.map((c) => (
         <CategoryButton

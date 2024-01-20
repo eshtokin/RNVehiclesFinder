@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import { Tabs } from "expo-router";
+import { useTranslation } from "react-i18next";
 import {
   CategoryFilter,
   ChangeViewButton,
@@ -11,6 +12,7 @@ import { useVehiclesData } from "hooks";
 import COLORS from "utils/colors";
 
 const VehicleListScreen = () => {
+  const { t } = useTranslation();
   const { vehicles, category, selectCategory } = useVehiclesData();
   const [isMapView, setMapView] = useState(false);
 
@@ -21,7 +23,7 @@ const VehicleListScreen = () => {
       {/* setup dinamyc options for current screen */}
       <Tabs.Screen
         options={{
-          title: "Vehicles",
+          title: t("vehicles.screenTitle"),
           headerRight: () => (
             <ChangeViewButton isMapView={isMapView} onPress={changeView} />
           ),

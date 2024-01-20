@@ -6,6 +6,9 @@
     "passenger": "Passenger",
     "special": "Special"
   },
+  "vehicles": {
+    "screenTitle": "Vehicles"
+  },
   "settings": {
     "screenTitle": "Settings",
     "labels": {

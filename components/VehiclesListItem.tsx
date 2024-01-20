@@ -1,11 +1,14 @@
 import { router } from "expo-router";
 import { FC } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Vehicle } from "../types";
-import { COLORS, SHARED_STYLES } from "utils";
+import { COLORS } from "utils";
+import { useTranslation } from "react-i18next";
+import Button from "components/Button";
 
 type VehiclesListItemProps = Vehicle;
 const VehiclesListItem: FC<VehiclesListItemProps> = (item: Vehicle) => {
+  const { t } = useTranslation(undefined, { keyPrefix: "carCategories" });
   const navigateToVehicleDetails = () =>
     router.push({
       pathname: "Vehicle",
@@ -13,39 +16,29 @@ const VehiclesListItem: FC<VehiclesListItemProps> = (item: Vehicle) => {
     });
 
   return (
-    <Pressable
-      style={({ pressed }) => [
-        styles.container,
-        pressed ? styles.pressedContainer : SHARED_STYLES.shadowShape,
-      ]}
-      onPress={navigateToVehicleDetails}
-    >
-      <View style={styles.topRowInfo}>
-        <Text style={styles.title}>{`${item.brand} #${item.id}`}</Text>
-        <Text style={styles.category}>{item.category}</Text>
+    <Button onPress={navigateToVehicleDetails}>
+      <View style={{ maxHeight: 85 }}>
+        <View style={styles.topRowInfo}>
+          <Text style={styles.category}>{t(`${item.category}`)}</Text>
+          <Text style={styles.title}>{`${item.brand} #${item.id}`}</Text>
+        </View>
+        <Text style={styles.name}>{item.driver.name}</Text>
       </View>
-      <Text style={styles.name}>{item.driver.name}</Text>
-    </Pressable>
+    </Button>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: COLORS.main,
-    padding: 20,
-    gap: 10,
-    borderWidth: 1,
-    borderColor: COLORS.secondaryTransparent,
-    borderRadius: 10,
+  pressedContainer: {
+    backgroundColor: COLORS.pressedColor,
   },
-  pressedContainer: { backgroundColor: COLORS.pressedColor },
   topRowInfo: {
     flexDirection: "row",
     alignItems: "flex-end",
     justifyContent: "space-between",
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
   },
   category: {
     fontSize: 20,

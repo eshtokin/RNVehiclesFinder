@@ -8,7 +8,7 @@ async function getVehicles(): Promise<Vehicle[]> {
 // create a hook for working with vehicle list
 export default function useVehiclesData() {
   const [vehicles, setVehicles] = useState<Vehicle[]>([]);
-  const [category, setCategory] = useState<Category | null>(null);
+  const [category, setCategory] = useState<Category>(Category.all);
 
   const getVehicleByCategory = (_vehicles: Vehicle[], _category: Category) =>
     _vehicles.filter((v) => v.category === _category);
@@ -20,7 +20,7 @@ export default function useVehiclesData() {
   }, []);
 
   useEffect(() => {
-    const isCategorySelected = category !== null;
+    const isCategorySelected = category !== Category.all;
 
     getVehicles()
       .then((_vehicles) =>

@@ -5,6 +5,11 @@ export enum Category {
   special = "special",
 }
 
+export const CATEGORIES_LIST = [];
+for (const key in Category) {
+  CATEGORIES_LIST.push(key);
+}
+
 export enum CategoryColor {
   all = "black",
   passenger = "red",

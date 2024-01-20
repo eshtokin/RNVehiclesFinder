@@ -1,6 +1,6 @@
-import { ScrollView, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import CategoryButton from "./CategoryButton";
-import { Category, CategoryColor } from "../types";
+import { CATEGORIES_LIST, Category, CategoryColor } from "../types";
 import COLORS from "utils/colors";
 import { useTranslation } from "react-i18next";
 
@@ -18,45 +18,31 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
       horizontal
       style={styles.container}
       contentContainerStyle={styles.content}
+      showsHorizontalScrollIndicator={false}
+      showsVerticalScrollIndicator={false}
     >
-      <CategoryButton
-        active={category === null}
-        title={t("carCategories." + Category.all)}
-        color={CategoryColor[Category.all]}
-        onPress={() => selectCategory(null)}
-      />
-      <CategoryButton
-        title={t("carCategories." + Category.cargo)}
-        active={category === Category.cargo}
-        color={CategoryColor[Category.cargo]}
-        onPress={() => selectCategory(Category.cargo)}
-      />
-      <CategoryButton
-        title={t("carCategories." + Category.passenger)}
-        active={category === Category.passenger}
-        color={CategoryColor[Category.passenger]}
-        onPress={() => selectCategory(Category.passenger)}
-      />
-      <CategoryButton
-        title={t("carCategories." + Category.special)}
-        active={category === Category.special}
-        color={CategoryColor[Category.special]}
-        onPress={() => selectCategory(Category.special)}
-      />
+      {CATEGORIES_LIST.map((c) => (
+        <CategoryButton
+          key={c}
+          active={category === c}
+          title={t("carCategories." + c)}
+          color={CategoryColor[c]}
+          onPress={() => selectCategory(c)}
+        />
+      ))}
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    minHeight: 82,
     backgroundColor: COLORS.main,
     borderBottomWidth: 1,
     borderColor: COLORS.secondaryTransparent,
   },
   content: {
-    paddingTop: 5,
-    paddingBottom: 15,
-    paddingHorizontal: 15,
+    padding: 15,
     gap: 10,
   },
 });

@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { Text, Pressable, StyleSheet } from "react-native";
-import { CategoryColor } from "../types";
 import { COLORS, SHARED_STYLES } from "utils";
 
 const inactiveColor = COLORS.main;
@@ -45,7 +44,10 @@ const styles = StyleSheet.create({
   pressedContainer: {
     backgroundColor: COLORS.pressedColor,
   },
-  title: { fontSize: 20, color: COLORS.secondary },
+  title: {
+    fontSize: 20,
+    color: COLORS.secondary,
+  },
 });
 
 export default CategoryButton;

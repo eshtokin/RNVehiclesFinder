@@ -2,9 +2,12 @@
   "language": "Русский",
   "carCategories": {
     "all": "Все",
-    "cargo": "Грузовые",
-    "passenger": "Пассажирские",
-    "special": "Специальные"
+    "cargo": "Грузовой",
+    "passenger": "Пассажирский",
+    "special": "Специальный"
+  },
+  "vehicles": {
+    "screenTitle": "Транспортные средства"
   },
   "settings": {
     "screenTitle": "Настройки",

@@ -1,21 +1,36 @@
-import { Pressable, PressableProps, StyleSheet, Text } from "react-native";
-import { COLORS } from "utils";
+import { FC, PropsWithChildren } from "react";
+import { Pressable, Text, StyleSheet } from "react-native";
+import { COLORS, SHARED_STYLES } from "utils";
 
-type ButtonProps = { title: string } & PressableProps;
-const Button: React.FC<ButtonProps> = ({ title, ...pressableProps }) => {
+type ButtonProps = {
+  onPress: () => void;
+  title?: string;
+} & PropsWithChildren;
+
+const Button: FC<ButtonProps> = ({ onPress, ...rest }) => {
   return (
-    <Pressable {...pressableProps}>
-      <Text>{title}</Text>
+    <Pressable
+      style={({ pressed }) => [
+        styles.container,
+        pressed ? styles.pressedContainer : SHARED_STYLES.shadowShape,
+      ]}
+      onPress={onPress}
+    >
+      {rest.title ? <Text>{rest?.title}</Text> : rest.children}
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: COLORS.main,
+    padding: 20,
     borderWidth: 1,
-    borderRadius: 20,
     borderColor: COLORS.secondaryTransparent,
-    padding: 10,
+    borderRadius: 10,
+  },
+  pressedContainer: {
+    backgroundColor: COLORS.pressedColor,
   },
 });
 

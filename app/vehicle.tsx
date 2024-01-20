@@ -5,8 +5,6 @@ import { View, Text, StyleSheet, Linking } from "react-native";
 import { useTranslation } from "react-i18next";
 import React from "react";
 import { FontAwesome, Foundation } from "@expo/vector-icons";
-// 5. Кнопка “Позвонить”. Открывает приложение с набором номера и уже подставленным номером водителя;
-// 6. Кнопка “Написать”. Открывает приложение whatsapp с чатом водителя и предустановленным сообщением: “Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе”.
 
 type VehicleProps = {};
 const Vehicle: React.FC<VehicleProps> = () => {

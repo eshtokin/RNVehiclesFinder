@@ -2,8 +2,7 @@ import { useEffect, useRef } from "react";
 import { StyleSheet } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { Vehicle, CategoryColor } from "types";
-import { calculateAverageLocation } from "utils/functions";
-import constants from "./../constants";
+import { FUNC, CONST } from "utils";
 
 type VehiclesMapViewProps = { vehicles: Vehicle[] };
 const VehiclesMapView: React.FC<VehiclesMapViewProps> = ({ vehicles }) => {
@@ -11,20 +10,16 @@ const VehiclesMapView: React.FC<VehiclesMapViewProps> = ({ vehicles }) => {
 
   useEffect(() => {
     const region = {
-      ...calculateAverageLocation(vehicles),
+      ...FUNC.calculateAverageLocation(vehicles),
       ...(vehicles.length === 1
-        ? constants.DELTA_FOR_SNGLE_CAR
-        : constants.DELTA_FOR_SEVERAL_CARS),
+        ? CONST.DELTA_FOR_SNGLE_CAR
+        : CONST.DELTA_FOR_SEVERAL_CARS),
     };
-    ref.current?.animateToRegion(region, constants.ANIMATION_DURATION);
+    ref.current?.animateToRegion(region, CONST.ANIMATION_DURATION);
   }, [vehicles]);
 
   return (
-    <MapView
-      ref={ref}
-      style={styles.map}
-      initialRegion={constants.INITIAL_REGION}
-    >
+    <MapView ref={ref} style={styles.map} initialRegion={CONST.INITIAL_REGION}>
       {vehicles.map((v) => (
         <Marker
           key={v.id}

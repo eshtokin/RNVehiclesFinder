@@ -12,7 +12,7 @@ const VehiclesListItem: FC<VehiclesListItemProps> = (item: Vehicle) => {
 
   const navigateToVehicleDetails = () =>
     router.push({
-      pathname: "Vehicle",
+      pathname: "vehicle",
       params: { id: item.id },
     });
 

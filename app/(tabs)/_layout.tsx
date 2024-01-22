@@ -19,7 +19,7 @@ export default function () {
         }}
       />
       <Tabs.Screen
-        name="Settings"
+        name="settings"
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="settings" size={24} color={color} />

@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
   content: {
     padding: 15,
     gap: 10,
-    width: "100%",
   },
 });
 

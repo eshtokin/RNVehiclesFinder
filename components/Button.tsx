@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.pressedColor,
   },
   title: {
+    margin: 10,
     fontSize: 16,
   },
 });

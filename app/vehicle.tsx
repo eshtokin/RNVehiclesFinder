@@ -1,12 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet, Linking } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { useTranslation } from "react-i18next";
 import { useLocalSearchParams } from "expo-router";
 import { FontAwesome, Foundation } from "@expo/vector-icons";
 import { useVehicleDetails } from "hooks";
 import { Button, VehiclesMapView } from "components";
-
-const DEFAULT_NUMBER_FOR_MESSAGE = +380663312127;
+import { sendMessageWithWhatsapp } from "utils/functions";
 
 type VehicleProps = {};
 const Vehicle: React.FC<VehicleProps> = () => {
@@ -14,16 +13,9 @@ const Vehicle: React.FC<VehicleProps> = () => {
   const { id } = useLocalSearchParams();
   const vehicle = useVehicleDetails(Number(id));
 
-  const openWhatsApp = () => {
-    const message = t("vehicle.defaultMessage");
-    Linking.openURL(
-      `whatsapp://send?phone=${DEFAULT_NUMBER_FOR_MESSAGE}&text=${message}`
-    );
-  };
+  const openWhatsApp = () => sendMessageWithWhatsapp();
 
-  const openDialer = () => {
-    Linking.openURL(`tel:${vehicle.driver.phone}`);
-  };
+  const openPhone = () => makeExternallCall();
 
   if (vehicle === null) {
     return <Text style={styles.title}>{t("common.loading")}...</Text>;
@@ -41,14 +33,22 @@ const Vehicle: React.FC<VehicleProps> = () => {
         </Text>
       </View>
       <View style={styles.messengerButtons}>
-        <Button
-          children={<Foundation name="telephone" size={24} color="black" />}
-          onPress={openDialer}
-        />
-        <Button
-          children={<FontAwesome name="whatsapp" size={24} color="black" />}
-          onPress={openWhatsApp}
-        />
+        <Button onPress={openPhone}>
+          <Foundation
+            name="telephone"
+            size={24}
+            color="black"
+            style={styles.contactIcon}
+          />
+        </Button>
+        <Button onPress={openWhatsApp}>
+          <FontAwesome
+            name="whatsapp"
+            size={24}
+            color="black"
+            style={styles.contactIcon}
+          />
+        </Button>
       </View>
       <View style={styles.mapWrapper}>
         <VehiclesMapView vehicles={[vehicle]} />
@@ -94,6 +94,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
   },
+  contactIcon: {
+    padding: 10,
+  },
 });
 
 export default Vehicle;
+function makeExternallCall() {
+  throw new Error("Function not implemented.");
+}

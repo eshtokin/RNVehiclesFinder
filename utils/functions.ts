@@ -1,5 +1,9 @@
 import { Vehicle, Location, Category } from "types";
+import { DEFAULT_NUMBER_FOR_MESSAGE } from "./constants";
+import { Linking } from "react-native";
+import i18n from "localizations/i18n";
 
+// function for calculating average coordinates where  vehicles is located on map
 export function calculateAverageLocation(vehicles: Vehicle[]): Location {
   const initialValue = {
     latitude: 0,
@@ -22,6 +26,7 @@ export function calculateAverageLocation(vehicles: Vehicle[]): Location {
   }, initialValue);
 }
 
+// function for make a delay
 export async function sleep(ms: number) {
   return new Promise((resolve, reject) => {
     setTimeout(ms < 3000 ? resolve : reject, ms);
@@ -37,6 +42,27 @@ export function selectVehiclesByCategory(
     : data.filter((v) => v.category === category);
 }
 
-export function getNextAvailableLanguage(resources: object, curLang: string) {
-  return Object.keys(resources).filter((key) => key !== curLang)[0] || curLang;
+// Function that take an object of resources for localization
+// and return a next language key based on current key
+export function getNextAvailableLanguage(
+  resources: object,
+  currentLanguage: string
+) {
+  return (
+    Object.keys(resources).filter((key) => key !== currentLanguage)[0] ||
+    currentLanguage
+  );
+}
+
+// Functin for navigate user to WhatsApp with prefilled message
+export function sendMessageWithWhatsapp(
+  number = DEFAULT_NUMBER_FOR_MESSAGE,
+  message = i18n.t("vehicle.defaultMessage")
+) {
+  Linking.openURL(`whatsapp://send?phone=${number}&text=${message}`);
+}
+
+// Function for making external calls
+export function makeExternalCall(number = DEFAULT_NUMBER_FOR_MESSAGE) {
+  Linking.openURL(`tel:${number}`);
 }

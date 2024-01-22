@@ -1,7 +1,5 @@
-import { Vehicle } from "types";
-import { sleep } from "utils/functions";
+import { QueryClient } from "@tanstack/react-query";
 
-export async function getAllVehicles(): Promise<Vehicle[]> {
-  await sleep(1500);
-  return require("./../data/mock-data.json");
-}
+const client = new QueryClient();
+
+export default client;

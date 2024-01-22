@@ -1,10 +1,15 @@
 import { Tabs } from "expo-router";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
-import DEFAULT_SCREEN_OPTIONS from "utils/screenOptions";
+import {
+  DEFAULT_HEADER_OPTIONS,
+  DEFAULT_TABS_OPTIONS,
+} from "utils/screenOptions";
 
 export default function () {
   return (
-    <Tabs screenOptions={DEFAULT_SCREEN_OPTIONS}>
+    <Tabs
+      screenOptions={{ ...DEFAULT_HEADER_OPTIONS, ...DEFAULT_TABS_OPTIONS }}
+    >
       <Tabs.Screen
         name="index"
         options={{

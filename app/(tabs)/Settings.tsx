@@ -18,7 +18,7 @@ const Settings: React.FC<SettingsProps> = () => {
 
   return (
     <>
-      {/* add dinamyc option to the screen */}
+      {/* Add dinamyc option to the screen */}
       <Stack.Screen options={{ title: t("settings.screenTitle") }} />
       <View style={styles.container}>
         <View style={styles.row}>

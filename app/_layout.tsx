@@ -1,16 +1,15 @@
 import { Stack } from "expo-router";
-import DEFAULT_SCREEN_OPTIONS from "utils/screenOptions";
-// use this file like entry point and do setup
+import { DEFAULT_HEADER_OPTIONS } from "utils/screenOptions";
+import { QueryClientProvider } from "@tanstack/react-query";
+// use this file like entry point and do global setup
 import "localizations/i18n";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-const client = new QueryClient();
+import client from "api";
 
 export default function AppLayout() {
   return (
     <QueryClientProvider client={client}>
       <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Vehicle" options={DEFAULT_SCREEN_OPTIONS} />
+        <Stack.Screen name="Vehicle" options={DEFAULT_HEADER_OPTIONS} />
       </Stack>
     </QueryClientProvider>
   );

@@ -9,6 +9,7 @@ import COLORS from "utils/colors";
 type VehiclesListItemProps = Vehicle;
 const VehiclesListItem: FC<VehiclesListItemProps> = (item: Vehicle) => {
   const { t } = useTranslation(undefined, { keyPrefix: "carCategories" });
+
   const navigateToVehicleDetails = () =>
     router.push({
       pathname: "Vehicle",
@@ -17,7 +18,7 @@ const VehiclesListItem: FC<VehiclesListItemProps> = (item: Vehicle) => {
 
   return (
     <Button onPress={navigateToVehicleDetails}>
-      <View style={{ maxHeight: 85 }}>
+      <View style={{ maxHeight: 85, width: "100%", padding: 10 }}>
         <View style={styles.topRowInfo}>
           <Text style={styles.category}>{t(`${item.category}`)}</Text>
           <Text style={styles.title}>{`${item.brand} #${item.id}`}</Text>

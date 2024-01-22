@@ -19,22 +19,18 @@ const VehicleListScreen = () => {
   const [isMapView, setMapView] = useState(false);
   const changeView = () => setMapView((mw) => !mw);
 
-  const setupCurrentScreen = (
-    <Tabs.Screen
-      options={{
-        title: t("vehicles.screenTitle"),
-        headerRight: () => (
-          <ChangeViewButton isMapView={isMapView} onPress={changeView} />
-        ),
-      }}
-    />
-  );
-
   return (
     <>
-      {setupCurrentScreen}
+      {/* add dinamyc option to the screen */}
+      <Tabs.Screen
+        options={{
+          title: t("vehicles.screenTitle"),
+          headerRight: () => (
+            <ChangeViewButton isMapView={isMapView} onPress={changeView} />
+          ),
+        }}
+      />
       <View style={[styles.container, styles.centered]}>
-        {/* add dinamyc option to the screen */}
         {isLoading ? (
           <Text style={styles.text}>{t("common.loading")}...</Text>
         ) : error ? (

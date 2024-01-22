@@ -1,9 +1,7 @@
 import { FC } from "react";
-import { Text, Pressable, StyleSheet } from "react-native";
+import { Text, StyleSheet } from "react-native";
 import COLORS from "utils/colors";
-import SHARED_STYLES from "utils/styles";
-
-const inactiveColor = COLORS.main;
+import Button from "./Button";
 
 type CategoryButtonProps = {
   title: string;
@@ -18,36 +16,17 @@ const CategoryButton: FC<CategoryButtonProps> = ({
   onPress,
 }) => {
   return (
-    <Pressable
-      onPress={onPress}
-      style={({ pressed }) => [
-        styles.container,
-        pressed ? styles.pressedContainer : SHARED_STYLES.shadowShape,
-        active && { borderColor: color },
-      ]}
-    >
+    <Button onPress={onPress}>
       <Text style={[styles.title, active && { color }]}>{title}</Text>
-    </Pressable>
+    </Button>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    height: 48,
-    justifyContent: "center",
-    alignContent: "center",
-    padding: 10,
-    borderWidth: 1,
-    borderRadius: 10,
-    borderColor: COLORS.secondaryTransparent,
-    backgroundColor: inactiveColor,
-  },
-  pressedContainer: {
-    backgroundColor: COLORS.pressedColor,
-  },
   title: {
     fontSize: 20,
     color: COLORS.secondary,
+    marginHorizontal: 10,
   },
 });
 

@@ -13,7 +13,7 @@ const Button: FC<ButtonProps> = ({ onPress, ...rest }) => {
     <Pressable
       style={({ pressed }) => [
         styles.container,
-        pressed ? styles.pressedContainer : SHARED_STYLES.shadowShape,
+        pressed ? styles.pressedContainer : SHARED_STYLES.shadow,
       ]}
       onPress={onPress}
     >
@@ -28,8 +28,9 @@ const Button: FC<ButtonProps> = ({ onPress, ...rest }) => {
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor: COLORS.main,
-    padding: 20,
     borderWidth: 1,
     borderRadius: 10,
     borderColor: COLORS.secondaryTransparent,

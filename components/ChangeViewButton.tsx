@@ -1,7 +1,8 @@
 import React, { FC } from "react";
-import { Pressable } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import COLORS from "utils/colors";
+import Button from "./Button";
 
 type ChangeViewButtonProps = {
   isMapView: boolean;
@@ -11,13 +12,24 @@ const ChangeViewButton: FC<ChangeViewButtonProps> = ({
   onPress,
   isMapView,
 }) => (
-  <Pressable onPress={onPress}>
-    {isMapView ? (
-      <FontAwesome name="list" size={24} color={COLORS.secondary} />
-    ) : (
-      <FontAwesome name="map-marker" size={24} color={COLORS.secondary} />
-    )}
-  </Pressable>
+  <Button onPress={onPress}>
+    <View style={styles.container}>
+      <FontAwesome
+        name={isMapView ? "list-ol" : "map-marker"}
+        size={24}
+        color={COLORS.secondary}
+      />
+    </View>
+  </Button>
 );
 
+const styles = StyleSheet.create({
+  container: {
+    width: 40,
+    height: 40,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 5,
+  },
+});
 export default ChangeViewButton;

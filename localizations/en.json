@@ -19,5 +19,8 @@
       "currentLanguage": "Current language",
       "change": "Change"
     }
+  },
+  "vehicle": {
+    "defaultMessage": "Good afternoon, please tell me what order number you are currently working on"
   }
-}
+

@@ -6,6 +6,8 @@ import { FontAwesome, Foundation } from "@expo/vector-icons";
 import { useVehicleDetails } from "hooks";
 import { Button, VehiclesMapView } from "components";
 
+const DEFAULT_NUMBER_FOR_MESSAGE = +380663312127;
+
 type VehicleProps = {};
 const Vehicle: React.FC<VehicleProps> = () => {
   const { t } = useTranslation();
@@ -13,10 +15,9 @@ const Vehicle: React.FC<VehicleProps> = () => {
   const vehicle = useVehicleDetails(Number(id));
 
   const openWhatsApp = () => {
-    const message =
-      "Добрый день, подскажите пожалуйста, какой номер заказа у вас сейчас в работе";
+    const message = t("vehicle.defaultMessage");
     Linking.openURL(
-      `whatsapp://send?phone=${vehicle.driver.phone}&text=${message}`
+      `whatsapp://send?phone=${DEFAULT_NUMBER_FOR_MESSAGE}&text=${message}`
     );
   };
 

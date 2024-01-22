@@ -5,7 +5,7 @@ import { useLocalSearchParams } from "expo-router";
 import { FontAwesome, Foundation } from "@expo/vector-icons";
 import { useVehicleDetails } from "hooks";
 import { Button, VehiclesMapView } from "components";
-import { sendMessageWithWhatsapp } from "utils/functions";
+import { sendMessageWithWhatsap, makeExternalCall } from "utils/functions";
 
 type VehicleProps = {};
 const Vehicle: React.FC<VehicleProps> = () => {
@@ -13,9 +13,9 @@ const Vehicle: React.FC<VehicleProps> = () => {
   const { id } = useLocalSearchParams();
   const vehicle = useVehicleDetails(Number(id));
 
-  const openWhatsApp = () => sendMessageWithWhatsapp();
+  const openWhatsApp = () => sendMessageWithWhatsap();
 
-  const openPhone = () => makeExternallCall();
+  const openPhone = () => makeExternalCall();
 
   if (vehicle === null) {
     return <Text style={styles.title}>{t("common.loading")}...</Text>;
@@ -100,6 +100,3 @@ const styles = StyleSheet.create({
 });
 
 export default Vehicle;
-function makeExternallCall() {
-  throw new Error("Function not implemented.");
-}

@@ -55,7 +55,7 @@ export function getNextAvailableLanguage(
 }
 
 // Functin for navigate user to WhatsApp with prefilled message
-export function sendMessageWithWhatsapp(
+export function sendMessageWithWhatsap(
   number = DEFAULT_NUMBER_FOR_MESSAGE,
   message = i18n.t("vehicle.defaultMessage")
 ) {

@@ -10,7 +10,7 @@ export default function AppLayout() {
     <QueryClientProvider client={client}>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen
-          name="vehicle"
+          name="vehicle_details"
           options={{
             ...DEFAULT_HEADER_OPTIONS,
             headerTitle: "Vehicle details",

@@ -1,6 +1,7 @@
 import { FC, PropsWithChildren } from "react";
 import { Pressable, Text, StyleSheet } from "react-native";
-import { COLORS, SHARED_STYLES } from "utils";
+import COLORS from "utils/colors";
+import SHARED_STYLES from "utils/styles";
 
 type ButtonProps = {
   onPress: () => void;

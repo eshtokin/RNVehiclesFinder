@@ -1,4 +1,4 @@
-import { Vehicle, Location } from "types";
+import { Vehicle, Location, Category } from "types";
 
 export function calculateAverageLocation(vehicles: Vehicle[]): Location {
   const initialValue = {
@@ -20,4 +20,23 @@ export function calculateAverageLocation(vehicles: Vehicle[]): Location {
     }
     return accumulator;
   }, initialValue);
+}
+
+export async function sleep(ms: number) {
+  return new Promise((resolve, reject) => {
+    setTimeout(ms < 3000 ? resolve : reject, ms);
+  });
+}
+
+export function selectVehiclesByCategory(
+  data: Vehicle[],
+  category: Category
+): Vehicle[] {
+  return category === Category.all
+    ? data
+    : data.filter((v) => v.category === category);
+}
+
+export function getNextAvailableLanguage(resources: object, curLang: string) {
+  return Object.keys(resources).filter((key) => key !== curLang)[0] || curLang;
 }

@@ -4,7 +4,7 @@ import { initReactI18next } from "react-i18next";
 const en = require("./en.json");
 const ru = require("./ru.json");
 
-const resources = {
+export const resources = {
   en: {
     translation: en,
   },

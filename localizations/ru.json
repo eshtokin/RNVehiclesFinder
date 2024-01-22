@@ -7,7 +7,8 @@
     "special": "Специальный"
   },
   "common": {
-    "loading": "Загрузка"
+    "loading": "Загрузка",
+    "error": "Ошибка"
   },
   "vehicles": {
     "screenTitle": "Транспортные средства"

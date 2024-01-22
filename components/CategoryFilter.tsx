@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet } from "react-native";
 import { useTranslation } from "react-i18next";
 import CategoryButton from "./CategoryButton";
 import { CATEGORIES_LIST, Category, CategoryColor } from "types";
-import { COLORS } from "utils";
+import COLORS from "utils/colors";
 
 type CategoryFilterProps = {
   category: Category;
@@ -35,7 +35,8 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    minHeight: 82,
+    maxHeight: 82,
+    zIndex: 200,
     borderBottomWidth: 1,
     borderColor: COLORS.secondaryTransparent,
     backgroundColor: COLORS.main,
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
   content: {
     padding: 15,
     gap: 10,
+    width: "100%",
   },
 });
 

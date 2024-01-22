@@ -3,8 +3,8 @@ import { FC } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useTranslation } from "react-i18next";
 import { Vehicle } from "types";
-import { COLORS } from "utils";
 import Button from "components/Button";
+import COLORS from "utils/colors";
 
 type VehiclesListItemProps = Vehicle;
 const VehiclesListItem: FC<VehiclesListItemProps> = (item: Vehicle) => {

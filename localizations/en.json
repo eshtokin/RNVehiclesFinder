@@ -7,7 +7,8 @@
     "special": "Special"
   },
   "common": {
-    "loading": "Loading"
+    "loading": "Loading",
+    "error": "Error"
   },
   "vehicles": {
     "screenTitle": "Vehicles"

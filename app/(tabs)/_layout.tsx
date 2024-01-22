@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import { Ionicons, AntDesign } from "@expo/vector-icons";
-import { DEFAULT_SCREEN_OPTIONS } from "utils";
+import DEFAULT_SCREEN_OPTIONS from "utils/screenOptions";
 
 export default function () {
   return (

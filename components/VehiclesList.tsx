@@ -11,6 +11,7 @@ const VehiclesList: React.FC<VehiclesListProps> = ({ vehicles }) => {
       data={vehicles}
       keyExtractor={(item) => item.id.toString()}
       renderItem={({ item }) => <VehicleListItem {...item} />}
+      style={{ flex: 1 }}
       contentContainerStyle={styles.contentContainer}
     />
   );
@@ -20,6 +21,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     gap: 10,
     padding: 15,
+    width: "100%",
   },
 });
 

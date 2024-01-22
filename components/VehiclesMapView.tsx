@@ -7,6 +7,7 @@ import {
   DELTA_FOR_BUNCH_OF_CARS,
   MAP_ANIMATION_DURATION,
   MAP_INITIAL_REGION,
+  MAP_DELAY_BEFORE_ANIMATION_DURATION,
 } from "utils/constants";
 import { calculateAverageLocation } from "utils/functions";
 
@@ -21,7 +22,10 @@ const VehiclesMapView: React.FC<VehiclesMapViewProps> = ({ vehicles }) => {
       ...calculateAverageLocation(vehicles),
       ...(isViewForSingleCar ? DELTA_FOR_SNGLE_CAR : DELTA_FOR_BUNCH_OF_CARS),
     };
-    ref.current?.animateToRegion(region, MAP_ANIMATION_DURATION);
+    setTimeout(
+      () => ref.current?.animateToRegion(region, MAP_ANIMATION_DURATION),
+      MAP_DELAY_BEFORE_ANIMATION_DURATION
+    );
   }, [vehicles]);
 
   return (

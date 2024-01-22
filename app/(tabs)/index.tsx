@@ -17,7 +17,7 @@ const VehicleListScreen = () => {
     useVehiclesData();
 
   const [isMapView, setMapView] = useState(false);
-  const changeView = () => setMapView((mw) => !mw);
+  const changeView = () => setMapView(!isMapView);
 
   return (
     <>

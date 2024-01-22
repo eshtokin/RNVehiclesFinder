@@ -1,4 +1,5 @@
 export const MAP_ANIMATION_DURATION = 1000;
+export const MAP_DELAY_BEFORE_ANIMATION_DURATION = 500;
 
 export const DELTA_FOR_SNGLE_CAR = {
   latitudeDelta: 0.04,

@@ -1,8 +1,8 @@
-import { ScrollView, StyleSheet, View } from "react-native";
-import CategoryButton from "./CategoryButton";
-import { CATEGORIES_LIST, Category, CategoryColor } from "../types";
-import COLORS from "utils/colors";
+import { ScrollView, StyleSheet } from "react-native";
 import { useTranslation } from "react-i18next";
+import CategoryButton from "./CategoryButton";
+import { CATEGORIES_LIST, Category, CategoryColor } from "types";
+import { COLORS } from "utils";
 
 type CategoryFilterProps = {
   category: Category;
@@ -36,9 +36,9 @@ const CategoryFilter: React.FC<CategoryFilterProps> = ({
 const styles = StyleSheet.create({
   container: {
     minHeight: 82,
-    backgroundColor: COLORS.main,
     borderBottomWidth: 1,
     borderColor: COLORS.secondaryTransparent,
+    backgroundColor: COLORS.main,
   },
   content: {
     padding: 15,

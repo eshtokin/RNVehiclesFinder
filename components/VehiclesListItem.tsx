@@ -1,9 +1,9 @@
 import { router } from "expo-router";
 import { FC } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Vehicle } from "../types";
-import { COLORS } from "utils";
 import { useTranslation } from "react-i18next";
+import { Vehicle } from "types";
+import { COLORS } from "utils";
 import Button from "components/Button";
 
 type VehiclesListItemProps = Vehicle;

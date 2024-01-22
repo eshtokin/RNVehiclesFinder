@@ -9,7 +9,7 @@ import {
   VehiclesMapView,
 } from "components";
 import { useVehiclesData } from "hooks";
-import COLORS from "utils/colors";
+import { COLORS } from "utils";
 
 const VehicleListScreen = () => {
   const { t } = useTranslation();
@@ -20,7 +20,7 @@ const VehicleListScreen = () => {
 
   return (
     <>
-      {/* setup dinamyc options for current screen */}
+      {/* add dinamyc option to the screen */}
       <Tabs.Screen
         options={{
           title: t("vehicles.screenTitle"),

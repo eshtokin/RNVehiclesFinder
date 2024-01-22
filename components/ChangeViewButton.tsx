@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Pressable } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import COLORS from "utils/colors";
+import { COLORS } from "utils";
 
 type ChangeViewButtonProps = {
   isMapView: boolean;

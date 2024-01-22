@@ -1,10 +1,10 @@
-import { Button, VehiclesMapView } from "components";
-import { useLocalSearchParams } from "expo-router";
-import { useVehicleDetails } from "hooks";
+import React from "react";
 import { View, Text, StyleSheet, Linking } from "react-native";
 import { useTranslation } from "react-i18next";
-import React from "react";
+import { useLocalSearchParams } from "expo-router";
 import { FontAwesome, Foundation } from "@expo/vector-icons";
+import { useVehicleDetails } from "hooks";
+import { Button, VehiclesMapView } from "components";
 
 type VehicleProps = {};
 const Vehicle: React.FC<VehicleProps> = () => {

@@ -4,11 +4,7 @@ import { DEFAULT_SCREEN_OPTIONS } from "utils";
 
 export default function () {
   return (
-    <Tabs
-      screenOptions={{
-        ...DEFAULT_SCREEN_OPTIONS,
-      }}
-    >
+    <Tabs screenOptions={DEFAULT_SCREEN_OPTIONS}>
       <Tabs.Screen
         name="index"
         options={{

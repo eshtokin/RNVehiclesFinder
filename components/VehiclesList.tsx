@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet } from "react-native";
-import { Vehicle } from "../types";
+import { Vehicle } from "types";
 import VehicleListItem from "./VehiclesListItem";
 
 type VehiclesListProps = {

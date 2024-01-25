@@ -6,12 +6,6 @@ export const DELTA_FOR_SNGLE_CAR = {
   longitudeDelta: 0.04,
 };
 
-// TODO: create function for calculating map's delta for bunch of cars
-export const DELTA_FOR_BUNCH_OF_CARS = {
-  latitudeDelta: 6,
-  longitudeDelta: 6,
-};
-
 export const MAP_INITIAL_REGION = {
   latitude: 45.5,
   longitude: 39,

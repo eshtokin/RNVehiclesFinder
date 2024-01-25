@@ -4,12 +4,11 @@ import MapView, { Marker } from "react-native-maps";
 import { Vehicle, CategoryColor } from "types";
 import {
   DELTA_FOR_SNGLE_CAR,
-  DELTA_FOR_BUNCH_OF_CARS,
   MAP_ANIMATION_DURATION,
   MAP_INITIAL_REGION,
   MAP_DELAY_BEFORE_ANIMATION_DURATION,
 } from "utils/constants";
-import { calculateAverageLocation } from "utils/functions";
+import { calculateAverageLocation, calculateDeltas } from "utils/functions";
 
 type VehiclesMapViewProps = { vehicles: Vehicle[] };
 const VehiclesMapView: React.FC<VehiclesMapViewProps> = ({ vehicles }) => {
@@ -18,9 +17,10 @@ const VehiclesMapView: React.FC<VehiclesMapViewProps> = ({ vehicles }) => {
   const ref = useRef<MapView>();
 
   useEffect(() => {
+    const coords = vehicles.map((v) => v.location);
     const region = {
       ...calculateAverageLocation(vehicles),
-      ...(isViewForSingleCar ? DELTA_FOR_SNGLE_CAR : DELTA_FOR_BUNCH_OF_CARS),
+      ...(isViewForSingleCar ? DELTA_FOR_SNGLE_CAR : calculateDeltas(coords)),
     };
     setTimeout(
       () => ref.current?.animateToRegion(region, MAP_ANIMATION_DURATION),
